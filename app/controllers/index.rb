@@ -11,6 +11,17 @@ get '/login' do
 end
 
 post '/login' do
+
+
+  user = User.find_by_username(params[:username]) #identify user
+  if !user.nil?
+    user.authenticate(params[:password]) #authenticate password by checking database
+    session[:user_id] = user.id
+    redirect to "/users/#{user.id}/surveys"
+  else
+    return "You need to create an account." # PLACEHOLDER
+  end
+
 end
 
 # create new user
@@ -23,16 +34,18 @@ post '/users/new' do
       session[:user_id] = user.id # set session equal to user_id
       user.password = params[:password] # creates encrypted password
       user.save
+      redirect to "/users/#{user.id}/surveys"
     else
-      return "Password does not match. Please try again."
+      return "Password does not match. Please try again." # PLACEHOLDER
     end
   end
 end
 
 
 get '/users/:user_id/surveys' do
-
-erb :profile
+  @surveys = Survey.where(:user_id => params[:user_id])j
+  @user = User.find(params[:user_id])
+  erb :profile
 end
 
 
