@@ -4,4 +4,14 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+  $(document).on('submit','#new_survey', function(event) {
+      event.preventDefault();
+      $.post('/surveys/new', {title: document.forms["new_survey"]["title"].value}, function(surid) {
+        var survey_id = surid;
+      });
+
+
+  });
+
 });
