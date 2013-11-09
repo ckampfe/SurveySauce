@@ -19,9 +19,16 @@
 </head>
 <body>
   <div class="bar">
+    <% if !session[:user_id].nil? %>
     <a href='/surveys/all'>All Surveys</a>
+    <a href='/logout'>Logout</a>
+    <a href="/users/<%=session[:user_id]%>/surveys">Profile</a>
+    <% else %>
     <a href='/login'>Login</a>
+    <a href='/surveys/all'>All Surveys</a>
+    <% end %>
   </div>
+
   <%= yield %>
 
 </body>
