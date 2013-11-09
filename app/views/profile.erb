@@ -1,0 +1,11 @@
+<div class="container">
+
+  <h1> Welcome, <%= @user.username %>!</h1>
+
+  <ul>
+    <% @surveys.each do |survey| %>
+      <li><%= survey.title %></li>
+    <% end %>
+  </ul>
+
+</div>
