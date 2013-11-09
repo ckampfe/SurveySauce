@@ -40,3 +40,20 @@ end
 
 get '/surveys/:survey_id/results' do
 end
+
+post '/questions/new' do
+  p 'hello'
+  if request.xhr?
+
+    myQuestion = Question.new(body: params[:body])
+    puts myQuestion
+    Survey.find(params[:survey_id]).questions << myQuestion
+
+    myQuestion.choices << Choice.create(option: params[:option1])
+    myQuestion.choices << Choice.create(option: params[:option2])
+    myQuestion.choices << Choice.create(option: params[:option3])
+    myQuestion.choices << Choice.create(option: params[:option4])
+
+    else
+    end
+end
