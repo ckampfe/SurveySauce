@@ -11,8 +11,6 @@ get '/login' do
 end
 
 post '/login' do
-
-
   user = User.find_by_username(params[:username]) #identify user
   if !user.nil?
     user.authenticate(params[:password]) #authenticate password by checking database
@@ -21,7 +19,6 @@ post '/login' do
   else
     return "You need to create an account." # PLACEHOLDER
   end
-
 end
 
 # create new user
@@ -43,11 +40,18 @@ end
 
 
 get '/users/:user_id/surveys' do
-  @surveys = Survey.where(:user_id => params[:user_id])j
-  @user = User.find(params[:user_id])
-  erb :profile
+
+  if !session[:user_id].nil?
+    @surveys = Survey.where(:user_id => params[:user_id])
+    @user = User.find(params[:user_id])
+    erb :profile
+  else
+    redirect to '/'
+  end
 end
 
-
-
+get '/logout' do
+  session[:user_id] = nil
+  erb :index
+end
 
