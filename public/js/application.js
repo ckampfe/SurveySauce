@@ -25,7 +25,16 @@ $(document).ready(function() {
                                 survey_id: $("#done_button").attr('data-survey-id')
                                 });
       $('#new_question')[0].reset();
+  });
+
+  $(document).on('submit', "#question_form", function(event) {
+    event.preventDefault();
+    var survey_id = $("#question_form").data("survey_id");
+    var choice_id = $('#question_form').serialize();
+    // console.log($('#question_form').serialize());
+    $.post('/surveys/' + survey_id, $('#question_form').serialize(), function() {} );
 
   });
+
 
 });

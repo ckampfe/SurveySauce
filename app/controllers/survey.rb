@@ -24,35 +24,21 @@ post '/surveys/new' do
 end
 
 get '/surveys/:survey_id' do
+  @survey = Survey.find(params[:survey_id])
+  @questions = @survey.questions
+  @choices = @questions.first.choices
 
-  if session[:user_id]
-    @questions_and_choices = []
-    @survey = Survey.find(params[:survey_id])
-    @questions = @survey.questions
-
-    @questions.each do |x|
-
-      @question_choice = []
-      @question_choice << x
-      choices = x.choices
-
-        choices.each do |x|
-          @question_choice << x
-        end
-
-        @questions_and_choices << @question_choice
-
-      end
-     p @questions_and_choices
-    erb :survey
-
-  else
-    redirect to('/')
-  end
-
+  erb :survey
 end
 
 post '/surveys/:survey_id' do
+
+#store choice_id to database for response
+
+choice = Choice.find(params[:answer])
+question = Question.find(choice.question_id)
+response = Response.create(choice_id: params[:answer], user_id: session[:user_id], question_id: question.id )
+p response
 end
 
 
