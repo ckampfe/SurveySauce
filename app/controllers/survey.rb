@@ -26,8 +26,26 @@ end
 get '/surveys/:survey_id' do
 
   if session[:user_id]
-    @suvery = Survey.find(params[:survey_id])
+    @questions_and_choices = []
+    @survey = Survey.find(params[:survey_id])
+    @questions = @survey.questions
+
+    @questions.each do |x|
+
+      @question_choice = []
+      @question_choice << x
+      choices = x.choices
+
+        choices.each do |x|
+          @question_choice << x
+        end
+
+        @questions_and_choices << @question_choice
+
+      end
+     p @questions_and_choices
     erb :survey
+
   else
     redirect to('/')
   end
@@ -42,7 +60,6 @@ get '/surveys/:survey_id/results' do
 end
 
 post '/questions/new' do
-  p 'hello'
   if request.xhr?
 
     myQuestion = Question.new(body: params[:body])

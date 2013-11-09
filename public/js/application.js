@@ -26,7 +26,6 @@ $(document).ready(function() {
                                 });
       $('#new_question')[0].reset();
 
-
   });
 
 });

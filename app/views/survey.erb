@@ -1,5 +1,21 @@
 <div class="container">
-
-  <!-- ADD PARTIAL AND AJAX -->
-
+<% question_num = 0 %>
+<form action='/surveys/:survey_id' class='survey_submit' id="survey_<%=@survey.id%>">
+<% @questions_and_choices.each do |x| %>
+<% q_name =  'question_' + question_num.to_s  %>
+  <% x.each_with_index do | x, i | %>
+  <% if i == 0 %>
+  <section class='question' id="question<%=question_num%>">
+  <legend id ="question<%=x.id%>"><%=x.body%></legend>
+  <% else %>
+  <section class="choice" id='choice<%=x.id%>'>
+  <label><%=x.option%></label>
+  <input type="radio" name="choice_<%=x.id%>" value="choice_<%=x.id%>"><br>
+  <% end %>
+  </section>
+  <% end %>
+  <% question_num += 1 %>
+<% end %>
+<input type="submit" value="Answer Survey">
+</form>
 </div>
