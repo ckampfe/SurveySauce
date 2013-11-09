@@ -6,7 +6,6 @@ get '/' do
 end
 
 get '/login' do
-
   erb :login
 end
 
@@ -27,11 +26,11 @@ post '/users/new' do
     return "Username taken!"
   else
     if params[:password] == params[:confirmed_password]
-      user = User.create(username: params[:username]) # make user
-      session[:user_id] = user.id # set session equal to user_id
+      user = User.new(username: params[:username], ) # make user
       user.password = params[:password] # creates encrypted password
       user.save
-      redirect to "/users/#{user.id}/surveys"
+      session[:user_id] = user.id # set session equal to user_id
+      redirect to "/users/#{session[:user_id]}/surveys"
     else
       return "Password does not match. Please try again." # PLACEHOLDER
     end
@@ -40,8 +39,7 @@ end
 
 
 get '/users/:user_id/surveys' do
-
-  if !session[:user_id].nil?
+  if session[:user_id] != nil
     @surveys = Survey.where(:user_id => params[:user_id])
     @user = User.find(params[:user_id])
     erb :profile
@@ -54,4 +52,3 @@ get '/logout' do
   session[:user_id] = nil
   erb :index
 end
-
