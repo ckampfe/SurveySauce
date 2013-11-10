@@ -1,11 +1,17 @@
 <div class="container">
 
   <h1> Welcome, <%= @user.username %>!</h1>
-  <h2> My Surveys, click for results </h2>
-  <ul id="surveys">
-    <% @surveys.each do |survey| %>
-      <li><a href="/surveys/<%=survey.id%>/results"><%= survey.title %></a></li><br>
+  <h2> My Surveys:</h2>
+  <ul class="survey_list">
+    <% @surveys_created.each do |survey| %>
+      <li><a href="/surveys/<%=survey.id%>/results"><%= survey.title %></a></li>
     <% end %>
   </ul>
 
+  <h2> Completed Surveys: </h2>
+  <ul class="survey_list">
+    <% @completed_survey_titles.each do |survey_title| %>
+      <li><%= survey_title %></li>
+      <% end %>
+    </ul>
 </div>
