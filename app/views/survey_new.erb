@@ -9,14 +9,14 @@
   <div class="question_space" style="display:none">
     <form action='/questions/new' name='new_question' id='new_question' method='POST'>
 
-      <input type="text" name="body"><br>
-      <input type="text" name="option1"><br>
-      <input type="text" name="option2"><br>
-      <input type="text" name="option3"><br>
-      <input type="text" name="option4"><br>
+      <input type="text" name="body"><br><br>
+      <input type="text" name="option1"><br><br>
+      <input type="text" name="option2"><br><br>
+      <input type="text" name="option3"><br><br>
+      <input type="text" name="option4"><br><br>
       <input type="hidden" name="survey_id" id="hidden_survey_id" data-survey-id="0">
-      <input type="submit" value="Create Question">
+      <input type="submit" value="Create Question"><br><br>
     </form>
-    <a href="/" id="done_button" data-survey-id="0" >Done</a>
+    <a href="/users/<%=@user.id%>/surveys" id="done_button" data-survey-id="0" >Done</a>
     </div>
 </div>

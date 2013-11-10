@@ -1,10 +1,10 @@
 <div class='container' id='partial_replace'>
   <div class='question_div'>
-    <h1><%=@questions.first.body%></h1>
+    <h1><%=@questions.first.body%></h1><br>
 
     <form action="/survey/survey_id" id='question_form' method="POST" data-survey_id='<%=@survey.id%>'>
       <% @choices.each do |choice| %>
-        <input type="radio" name="answer" value="<%=choice.id%>"> <%=choice.option%>
+        <input type="radio" name="answer" value="<%=choice.id%>"> <%=choice.option%><br>
         <br>
       <% end %>
       <input type="submit">
