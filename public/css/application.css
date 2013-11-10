@@ -5,6 +5,12 @@
   text-align: center;
   font-family: 'Raleway Dots', cursive;
 }
+
+.container a {
+  text-decoration: none;
+}
+
+
 th {
   text-align: left;
 }
