@@ -2,7 +2,8 @@
   margin: 50px auto;
   width: 600px;
   padding: 20px 20px 20px 20px;
-  border: 1px dotted black;
+  text-align: center;
+  font-family: 'Raleway Dots', cursive;
 }
 th {
   text-align: left;
@@ -16,4 +17,37 @@ th {
   height: 40px;
   background-color: black;
   color: white;
+}
+
+#welcome {
+  font-family: 'Raleway Dots', cursive;
+}
+
+.bar a {
+  color: white;
+  font-family: 'Raleway Dots', cursive;
+  line-height: 40px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+    
+}
+
+#login {
+  float:right;
+  padding-right: 10px;
+}
+
+
+
+.bar a:active{
+  color:white;
+}
+
+.bar a:visited{
+  color:white;
+}
+
+input{
+   text-align:center;
 }

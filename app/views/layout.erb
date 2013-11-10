@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href='http://fonts.googleapis.com/css?family=Raleway+Dots&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <!-- 
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
@@ -24,8 +25,10 @@
     <a href='/logout'>Logout</a>
     <a href="/users/<%=session[:user_id]%>/surveys">Profile</a>
     <% else %>
-    <a href='/login'>Login</a>
     <a href='/surveys/all'>All Surveys</a>
+    <a href='/survyes/new'>Create Survey</a>
+    <a id="login" href='/login'>Login</a>
+
     <% end %>
   </div>
 
