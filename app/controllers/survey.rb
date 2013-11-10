@@ -42,7 +42,7 @@ post '/surveys/:survey_id' do
   question = Question.find(choice.question_id)
 
   Response.create(user_id: session[:user_id], choice_id: params[:answer], question_id: question.id )
-    
+
   if @survey.questions.last == question
     Complete.create(user_id: session[:user_id], survey_id: @survey.id)
     return "Finished_Qs"
@@ -60,24 +60,30 @@ end
 
 
 get '/surveys/:survey_id/results' do
-  @survey_title = Survey.find(params[:survey_id]).title
+  survey = Survey.find(params[:survey_id])
 
-  @questions_responses_count = {} # master hash
-  questions = Question.where(:survey_id => params[:survey_id])
-  p questions
+  if session[:user_id] == survey.user_id
+    @survey_title = survey.title
 
-  # WEEEE NESTING
-  questions.each do |q|
-    @questions_responses_count[q] = {} # make a hash for each question_id
+    @questions_responses_count = {} # master hash
+    questions = Question.where(:survey_id => params[:survey_id])
+    p questions
 
-    choices = q.choices # get choices for the current question
+    # WEEEE NESTING
+    questions.each do |q|
+      @questions_responses_count[q] = {} # make a hash for each question_id
 
-    choices.each do |c| # for each possible choice, count the responses
-      @questions_responses_count[q][c] = Response.where(:choice_id => c.id).count
+      choices = q.choices # get choices for the current question
+
+      choices.each do |c| # for each possible choice, count the responses
+        @questions_responses_count[q][c] = Response.where(:choice_id => c.id).count
+      end
     end
-  end
 
-  erb :results
+    erb :results
+  else
+    return "Access denied"
+  end
 end
 
 post '/questions/new' do
