@@ -60,6 +60,24 @@ end
 
 
 get '/surveys/:survey_id/results' do
+  @survey_title = Survey.find(params[:survey_id]).title
+
+  @questions_responses_count = {} # master hash
+  questions = Question.where(:survey_id => params[:survey_id])
+  p questions
+
+  # WEEEE NESTING
+  questions.each do |q|
+    @questions_responses_count[q] = {} # make a hash for each question_id
+
+    choices = q.choices # get choices for the current question
+
+    choices.each do |c| # for each possible choice, count the responses
+      @questions_responses_count[q][c] = Response.where(:choice_id => c.id).count
+    end
+  end
+
+  erb :results
 end
 
 post '/questions/new' do
