@@ -31,10 +31,22 @@ $(document).ready(function() {
     event.preventDefault();
     var survey_id = $("#question_form").data("survey_id");
     var choice_id = $('#question_form').serialize();
-    // console.log($('#question_form').serialize());
-    $.post('/surveys/' + survey_id, $('#question_form').serialize(), function() {} );
-
+    $.post('/surveys/' + survey_id, $('#question_form').serialize(), function(return_dat) {
+      if (return_dat == 'Finished_Qs')
+      {
+        $('.question_div').fadeOut("slow");
+        $.get('/surveys/' + survey_id +'/finished', function(finished_partial) {
+          $('#partial_replace').html(finished_partial);
+          $('.finished_div').fadeIn("slow");
+        });
+      }
+      else
+      {
+        $('.question_div').fadeOut("slow", function() {
+          $('#partial_replace').html(return_dat);
+          $('.question_div').fadeIn("slow");
+        });
+      }
+    });
   });
-
-
 });
