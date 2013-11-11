@@ -6,6 +6,10 @@
   font-family: 'Raleway Dots', cursive;
 }
 
+.container a {
+  text-decoration: none;
+}
+
 th {
   text-align: left;
 }
@@ -28,9 +32,13 @@ th {
   padding-right: 10px;
 }
 
-#surveys {
-  font-size:25px;
+.survey_list {
+  font-size: 25px;
   list-style-type:none;
+}
+
+li {
+  margin-left: -30px;
 }
 
 .bar a {

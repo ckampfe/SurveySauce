@@ -1,5 +1,5 @@
 <div class="container">
-  <ul id="surveys">
+  <ul class="survey_list">
     <% @surveys.each do |s| %>
       <li><a href="/surveys/<%= s.id %>" class="no-underline"><%= s.title %></a></li><br>
     <% end %>
