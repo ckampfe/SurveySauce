@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>Results for <%= @survey_title %></h1>
+  <h1>Results for: "<%= @survey_title %>"</h1>
   <ul class="questions">
     <% @questions_responses_count.each_pair do |question, responses| %>
-    <li class="results_question"> <%= question.body %>
+      <li class="results_question"> <span class="question_body"><%= question.body %></span>
       <ul>
         <% responses.each_pair do |response, total| %>
           <li class="results_answer"><%= response.option %>: <%= total %></li>
