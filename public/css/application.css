@@ -84,3 +84,8 @@ input {
 .question_body {
   font-size: 2em;
 }
+
+#created_fade{
+  color: white;
+  background-color: grey;
+}
