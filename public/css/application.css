@@ -76,3 +76,11 @@ input {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
+
+.questions {
+  list-style: none;
+}
+
+.question_body {
+  font-size: 2em;
+}
