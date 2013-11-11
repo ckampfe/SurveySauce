@@ -16,7 +16,7 @@ post '/login' do
     session[:user_id] = user.id
     redirect to "/users/#{user.id}/surveys"
   else
-    return "You need to create an account." # PLACEHOLDER
+    return "You need to create an account."
   end
 end
 
@@ -32,7 +32,7 @@ post '/users/new' do
       session[:user_id] = user.id # set session equal to user_id
       redirect to "/users/#{session[:user_id]}/surveys"
     else
-      return "Password does not match. Please try again." # PLACEHOLDER
+      return "Password does not match. Please try again."
     end
   end
 end
@@ -41,11 +41,11 @@ end
 get '/users/:user_id/surveys' do
   if session[:user_id] != nil
     @surveys_created = Survey.where(:user_id => params[:user_id])
-    
+
     @user = User.find(params[:user_id])
     surveys_completed = Complete.where(:user_id => params[:user_id])
     @completed_survey_titles = []
-    
+
     surveys_completed.each do |complete|
       @completed_survey_titles << Survey.find(complete.survey_id).title
     end
