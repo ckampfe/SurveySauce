@@ -24,15 +24,6 @@ th {
   font-family: 'Raleway Dots', cursive;
 }
 
-.bar a {
-  color: white;
-  font-family: 'Raleway Dots', cursive;
-  line-height: 40px;
-  text-decoration: none;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
 #login {
   float:right;
   padding-right: 10px;
@@ -41,6 +32,15 @@ th {
 #surveys {
   font-size:25px;
   list-style-type:none;
+}
+
+.bar a {
+  color: white;
+  font-family: 'Raleway Dots', cursive;
+  line-height: 40px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .bar a:active {
