@@ -98,6 +98,7 @@ post '/questions/new' do
     myQuestion.choices << Choice.create(option: params[:option3])
     myQuestion.choices << Choice.create(option: params[:option4])
 
+    erb :_question_created, layout: false
     else
     end
 end

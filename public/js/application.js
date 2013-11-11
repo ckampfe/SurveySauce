@@ -23,8 +23,11 @@ $(document).ready(function() {
                                 option3: document.forms["new_question"]["option3"].value,
                                 option4: document.forms["new_question"]["option4"].value,
                                 survey_id: $("#done_button").attr('data-survey-id')
+                                }, function(created_notif) {
+                                  $('.created_notification').html(created_notif);
+                                  $('#new_question')[0].reset();
+                                  $('#created_fade').fadeIn('slow').delay(1000).fadeOut();
                                 });
-      $('#new_question')[0].reset();
   });
 
   $(document).on('submit', "#question_form", function(event) {
