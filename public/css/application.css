@@ -5,11 +5,12 @@
   text-align: center;
   font-family: 'Raleway Dots', cursive;
 }
+
 th {
   text-align: left;
 }
 
-.bar{
+.bar {
   position:fixed;
   top: 0;
   width: 100%;
@@ -30,7 +31,6 @@ th {
   text-decoration: none;
   padding-left: 10px;
   padding-right: 10px;
-    
 }
 
 #login {
@@ -38,23 +38,19 @@ th {
   padding-right: 10px;
 }
 
-#surveys{
+#surveys {
   font-size:25px;
   list-style-type:none;
 }
 
-
-
-
-
-.bar a:active{
+.bar a:active {
   color:white;
 }
 
-.bar a:visited{
+.bar a:visited {
   color:white;
 }
 
-input{
-   text-align:center;
+input {
+  text-align:center;
 }
