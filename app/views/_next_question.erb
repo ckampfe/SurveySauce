@@ -3,7 +3,7 @@
 
   <form action="#" id='question_form' method="POST" data-survey_id='<%=@survey.id%>'>
     <% @next_choices.each do |choice| %>
-      <input type="radio" name="answer" value="<%=choice.id%>"> <%=choice.option%>
+      <input type="radio" name="answer" value="<%=choice.id%>"> <%=choice.option%><br>
       <br>
     <% end %>
     <input type="submit">
