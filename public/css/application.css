@@ -1,9 +1,91 @@
 .container {
-  margin: 20px auto;
+  margin: 50px auto;
   width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  padding: 20px 20px 20px 20px;
+  text-align: center;
+  font-family: 'Raleway Dots', cursive;
 }
+
+.container a {
+  text-decoration: none;
+}
+
 th {
   text-align: left;
+}
+
+.bar {
+  position:fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 0 2px 0;
+  height: 40px;
+  background-color: black;
+}
+
+#welcome {
+  font-family: 'Raleway Dots', cursive;
+}
+
+#login {
+  float:right;
+  padding-right: 10px;
+}
+
+.survey_list {
+  font-size: 25px;
+  list-style-type:none;
+}
+
+li {
+  margin-left: -30px;
+}
+
+.bar a {
+  color: gray;
+  font-family: 'Raleway Dots', cursive;
+  line-height: 40px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.bar a:hover {
+  color: white;
+}
+
+.bar a:active {
+  color: white;
+}
+
+input {
+  text-align: center;
+}
+
+.no-underline {
+  text-decoration: none;
+  color: gray;
+}
+
+.no-underline:hover {
+  color: black;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.questions {
+  list-style: none;
+}
+
+.question_body {
+  font-size: 2em;
+}
+
+#created_fade{
+  color: white;
+  background-color: grey;
 }

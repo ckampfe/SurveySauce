@@ -1,0 +1,11 @@
+<div class='question_div' style="display:none">
+  <h1><%=@next_question.body%></h1>
+
+  <form action="#" id='question_form' method="POST" data-survey_id='<%=@survey.id%>'>
+    <% @next_choices.each do |choice| %>
+      <input type="radio" name="answer" value="<%=choice.id%>"> <%=choice.option%><br>
+      <br>
+    <% end %>
+    <input type="submit">
+  </form>
+</div>
