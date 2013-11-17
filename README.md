@@ -1,5 +1,6 @@
 SurveySauce
 ===========
+A SurveyMonkey clone.
 
 ## Group members:
 
